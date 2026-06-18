@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-06-18",
+  "description": "创新药ETF(513120)预测模型初始版本备份",
+  "model_params": {
+    "weights": {
+      "technical": 0.30,
+      "volume_price": 0.25,
+      "capital_flow": 0.20,
+      "news_catalyst": 0.15,
+      "sector_synergy": 0.10
+    },
+    "thresholds": {
+      "bullish_score": 0.65,
+      "bearish_score": 0.35,
+      "volume_surge_ratio": 1.5,
+      "support_break_pct": 0.005,
+      "resistance_break_pct": 0.005
+    },
+    "adjustment_rules": [
+      "若预测方向正确且幅度误差<0.3%，权重保持不变",
+      "若预测方向正确但幅度误差>0.5%，微调相应因子权重+0.02",
+      "若预测方向错误，降低主因权重-0.05，提升次因权重+0.03",
+      "连续3次方向正确，提升该因子权重+0.03"
+    ]
+  },
+  "accuracy_history": [],
+  "prediction_log": [],
+  "changelog": []
+}

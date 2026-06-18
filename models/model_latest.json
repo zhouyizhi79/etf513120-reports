@@ -1,0 +1,55 @@
+{
+  "version": "1.0.1",
+  "last_updated": "2026-06-18",
+  "description": "创新药ETF(513120)预测模型 - 由晚报自动化任务迭代优化",
+  "model_params": {
+    "weights": {
+      "technical": 0.33,
+      "volume_price": 0.27,
+      "capital_flow": 0.17,
+      "news_catalyst": 0.13,
+      "sector_synergy": 0.10
+    },
+    "thresholds": {
+      "bullish_score": 0.65,
+      "bearish_score": 0.35,
+      "volume_surge_ratio": 1.5,
+      "support_break_pct": 0.005,
+      "resistance_break_pct": 0.005
+    },
+    "adjustment_rules": [
+      "若预测方向正确且幅度误差<0.3%，权重保持不变",
+      "若预测方向正确但幅度误差>0.5%，微调相应因子权重+0.02",
+      "若预测方向错误，降低主因权重-0.05，提升次因权重+0.03",
+      "连续3次方向正确，提升该因子权重+0.03"
+    ]
+  },
+  "accuracy_history": [
+    {"date": "2026-06-18", "score": 60, "direction_correct": false, "interval_accuracy": 83, "key_levels_accuracy": 75, "capital_flow_accuracy": 0}
+  ],
+  "prediction_log": [
+    {
+      "date": "2026-06-18",
+      "predicted_direction": "震荡偏涨",
+      "actual_direction": "早涨后回落",
+      "predicted_range": "0.97-1.01",
+      "actual_range": "0.97-1.01",
+      "predicted_support": "0.96",
+      "actual_low": "0.97",
+      "predicted_resistance": "1.00",
+      "actual_high": "1.01",
+      "predicted_capital": "偏多",
+      "actual_capital": "主力净流出-3.14亿"
+    }
+  ],
+  "changelog": [
+    {
+      "date": "2026-06-18",
+      "from_version": "1.0.0",
+      "to_version": "1.0.1",
+      "changes": "技术面+0.03(冲高回落信号被低估)、量价+0.02(区间预测较准)、资金-0.03(方向完全错误🔴)、消息-0.02(利好效应短暂)",
+      "basis": "资金流向预测完全错误(预测偏多实际净流出-3.14亿)、技术面冲高回落效应被低估、方向后半段偏差",
+      "accuracy_score": 60
+    }
+  ]
+}
