@@ -1,14 +1,14 @@
 {
-  "version": "1.0.2",
-  "last_updated": "2026-06-22",
+  "version": "1.0.1",
+  "last_updated": "2026-06-18",
   "description": "创新药ETF(513120)预测模型 - 由晚报自动化任务迭代优化",
   "model_params": {
     "weights": {
       "technical": 0.33,
-      "volume_price": 0.28,
-      "capital_flow": 0.19,
-      "news_catalyst": 0.12,
-      "sector_synergy": 0.08
+      "volume_price": 0.27,
+      "capital_flow": 0.17,
+      "news_catalyst": 0.13,
+      "sector_synergy": 0.10
     },
     "thresholds": {
       "bullish_score": 0.65,
@@ -25,8 +25,7 @@
     ]
   },
   "accuracy_history": [
-    {"date": "2026-06-18", "score": 60, "direction_correct": false, "interval_accuracy": 83, "key_levels_accuracy": 75, "capital_flow_accuracy": 0},
-    {"date": "2026-06-22", "score": 89, "direction_correct": true, "interval_accuracy": 93, "key_levels_accuracy": 90, "capital_flow_accuracy": 80}
+    {"date": "2026-06-18", "score": 60, "direction_correct": false, "interval_accuracy": 83, "key_levels_accuracy": 75, "capital_flow_accuracy": 0}
   ],
   "prediction_log": [
     {
@@ -41,19 +40,6 @@
       "actual_high": "1.01",
       "predicted_capital": "偏多",
       "actual_capital": "主力净流出-3.14亿"
-    },
-    {
-      "date": "2026-06-22",
-      "predicted_direction": "震荡偏弱，随时可能反弹",
-      "actual_direction": "先弱后强V型反转",
-      "predicted_range": "0.97-1.00",
-      "actual_range": "0.96-1.00",
-      "predicted_support": "0.97/0.96",
-      "actual_low": "0.96",
-      "predicted_resistance": "0.99/1.00",
-      "actual_high": "1.00",
-      "predicted_capital": "3日转正",
-      "actual_capital": "今日主力净流入+989万，3日约+1.06亿"
     }
   ],
   "changelog": [
@@ -64,14 +50,6 @@
       "changes": "技术面+0.03(冲高回落信号被低估)、量价+0.02(区间预测较准)、资金-0.03(方向完全错误🔴)、消息-0.02(利好效应短暂)",
       "basis": "资金流向预测完全错误(预测偏多实际净流出-3.14亿)、技术面冲高回落效应被低估、方向后半段偏差",
       "accuracy_score": 60
-    },
-    {
-      "date": "2026-06-22",
-      "from_version": "1.0.1",
-      "to_version": "1.0.2",
-      "changes": "技术面+0.02(方向和关键价位预测准确)、量价+0.02(区间预测准确)、资金流+0.03(3日转正预测正确)、板块联动-0.02(低估港股创新药拖累)，归一化后权重为技术0.33/量价0.28/资金0.19/消息0.12/板块0.08",
-      "basis": "方向判断✅完全正确(V型反转)、区间预测✅精准(仅��限差0.01)、资金流向✅3日转正预测正确、支撑位1(0.97)被击穿因港股拖累超预期",
-      "accuracy_score": 89
     }
   ]
 }
