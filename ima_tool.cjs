@@ -257,8 +257,7 @@ async function main() {
         await addUrls(param.split(','));
         break;
       case 'upload':
-        if (!param) { console.error('请提供文件路径'); process.exit(1); }
-        await uploadFile(param);
+        console.log('⚠️ 文件上传API暂不可用（Go反序列化兼容问题），请通过IMA客户端手动上传');
         break;
       case 'list':
         await listKB();

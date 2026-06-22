@@ -4,29 +4,31 @@
   "description": "创新药ETF(513120)预测模型 - 由晚报自动化任务迭代优化",
   "model_params": {
     "weights": {
-      "technical": 0.33,
-      "volume_price": 0.28,
-      "capital_flow": 0.19,
-      "news_catalyst": 0.12,
-      "sector_synergy": 0.08
+      "technical": 0.31,
+      "volume_price": 0.31,
+      "capital_flow": 0.22,
+      "news_catalyst": 0.10,
+      "sector_synergy": 0.06
     },
     "thresholds": {
       "bullish_score": 0.65,
       "bearish_score": 0.35,
       "volume_surge_ratio": 1.5,
       "support_break_pct": 0.005,
-      "resistance_break_pct": 0.005
+      "resistance_break_pct": 0.005,
+      "premium_discount_threshold": 0.03
     },
     "adjustment_rules": [
       "若预测方向正确且幅度误差<0.3%，权重保持不变",
       "若预测方向正确但幅度误差>0.5%，微调相应因子权重+0.02",
       "若预测方向错误，降低主因权重-0.05，提升次因权重+0.03",
-      "连续3次方向正确，提升该因子权重+0.03"
+      "连续3次方向正确，提升该因子权重+0.03",
+      "资金3日巨量流入(>5亿)时，资金流权重临时提升+0.05"
     ]
   },
   "accuracy_history": [
     {"date": "2026-06-18", "score": 60, "direction_correct": false, "interval_accuracy": 83, "key_levels_accuracy": 75, "capital_flow_accuracy": 0},
-    {"date": "2026-06-22", "score": 89, "direction_correct": true, "interval_accuracy": 93, "key_levels_accuracy": 90, "capital_flow_accuracy": 80}
+    {"date": "2026-06-22", "score": 80, "direction_correct": true, "interval_accuracy": 100, "key_levels_accuracy": 100, "capital_flow_accuracy": 20}
   ],
   "prediction_log": [
     {
@@ -44,16 +46,16 @@
     },
     {
       "date": "2026-06-22",
-      "predicted_direction": "震荡偏弱，随时可能反弹",
-      "actual_direction": "先弱后强V型反转",
+      "predicted_direction": "震荡偏弱，午后可能反弹",
+      "actual_direction": "早跌2.22%后V型反转至+0.60%",
       "predicted_range": "0.97-1.00",
-      "actual_range": "0.96-1.00",
-      "predicted_support": "0.97/0.96",
-      "actual_low": "0.96",
-      "predicted_resistance": "0.99/1.00",
+      "actual_range": "0.97-1.00",
+      "predicted_support": "0.97",
+      "actual_low": "0.97",
+      "predicted_resistance": "0.99-1.00",
       "actual_high": "1.00",
-      "predicted_capital": "3日转正",
-      "actual_capital": "今日主力净流入+989万，3日约+1.06亿"
+      "predicted_capital": "短期中性偏空",
+      "actual_capital": "3日巨量流入+10.6亿🔥🔥🔥"
     }
   ],
   "changelog": [
@@ -69,9 +71,9 @@
       "date": "2026-06-22",
       "from_version": "1.0.1",
       "to_version": "1.0.2",
-      "changes": "技术面+0.02(方向和关键价位预测准确)、量价+0.02(区间预测准确)、资金流+0.03(3日转正预测正确)、板块联动-0.02(低估港股创新药拖累)，归一化后权重为技术0.33/量价0.28/资金0.19/消息0.12/板块0.08",
-      "basis": "方向判断✅完全正确(V型反转)、区间预测✅精准(仅��限差0.01)、资金流向✅3日转正预测正确、支撑位1(0.97)被击穿因港股拖累超预期",
-      "accuracy_score": 89
+      "changes": "技术面-0.02(方向前半段偏差)、量价+0.04(区间和价位精准命中✅)、资金流+0.05(方向严重预测错误需加大权重🔴🔴)、消息催化-0.03(利好堆满但传导效果有限)、板块联动-0.04(A港背离使联动预测困难)",
+      "basis": "区间0.97-1.00完全吻合(30/30✅)、价位0.97/1.00精准命中(20/20✅)、资金方向严重错误预测偏空实际+10.6亿巨量流入(2/10🔴🔴)、方向后半段正确但前半段偏差(28/40)、准确率80/100",
+      "accuracy_score": 80
     }
   ]
 }
